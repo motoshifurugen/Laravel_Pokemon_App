@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Monster;
+use App\Attribute;
+use App\Region;
 use Illuminate\Http\Request;
 
 class MonsterController extends Controller
@@ -14,7 +16,9 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        //
+        $monsters = Monster::all();
+
+        return view('monsters.index', compact('monsters'));
     }
 
     /**
@@ -24,7 +28,10 @@ class MonsterController extends Controller
      */
     public function create()
     {
-        //
+        $attributes = Attribute::all();
+        $regions = Region::all();
+
+        return view('monsters.create', compact('attributes', 'regions'));
     }
 
     /**
@@ -35,7 +42,17 @@ class MonsterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $monster = new Monster();
+        $monster->name = request('name');
+        $monster->attribute_id = request('attribute_id');
+        $monster->region_id = request('region_id');
+        $monster->size = request('size');
+        $monster->weight = request('weight');
+        $monster->attack_name = request('attack_name');
+        $monster->attack_description = request('attack_description');
+        $monster->save();
+
+        return redirect()->route('monsters.index');
     }
 
     /**
@@ -46,7 +63,10 @@ class MonsterController extends Controller
      */
     public function show(Monster $monster)
     {
-        //
+        $attributes = Attribute::all();
+        $regions = Region::all();
+
+        return view('monsters.show', compact('monster', 'attributes', 'regions'));
     }
 
     /**
@@ -57,7 +77,10 @@ class MonsterController extends Controller
      */
     public function edit(Monster $monster)
     {
-        //
+        $attributes = Attribute::all();
+        $regions = Region::all();
+
+        return view('monsters.edit', compact('monster', 'attributes', 'regions'));
     }
 
     /**
@@ -69,7 +92,16 @@ class MonsterController extends Controller
      */
     public function update(Request $request, Monster $monster)
     {
-        //
+        $monster->name = request('name');
+        $monster->attribute_id = request('attribute_id');
+        $monster->region_id = request('region_id');
+        $monster->size = request('size');
+        $monster->weight = request('weight');
+        $monster->attack_name = request('attack_name');
+        $monster->attack_description = request('attack_description');
+        $monster->save();
+
+        return redirect()->route('monsters.index');
     }
 
     /**
@@ -80,6 +112,7 @@ class MonsterController extends Controller
      */
     public function destroy(Monster $monster)
     {
-        //
+        $monster->delete();
+        return redirect()->route('monsters.index');
     }
 }

@@ -15,6 +15,13 @@ class CreateMonstersTable extends Migration
     {
         Schema::create('monsters', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('attribute_id');
+            $table->integer('region_id');
+            $table->integer('size')->unsigned();
+            $table->integer('weight')->unsigned();
+            $table->string('attack_name');
+            $table->string('attack_description');
             $table->timestamps();
         });
     }
