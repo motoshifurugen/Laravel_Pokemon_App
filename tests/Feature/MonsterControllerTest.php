@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Http\Controller\MonsterController;
+
 
 class MonsterControllerTest extends TestCase
 {
@@ -13,10 +15,8 @@ class MonsterControllerTest extends TestCase
      *
      * @return void
      */
-    public function testIndex()
+    public function store()
     {
-        $response = $this->get('monsters.index');
-
-        $response->assertStatus(200);
+        $this->assertSee('name')
     }
 }
