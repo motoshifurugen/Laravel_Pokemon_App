@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <table class="table">
     <tr>
         <th>名前</th>
@@ -49,3 +53,5 @@
     @endforeach
     </table>
     <a href="/monsters/create">新しく追加する</a>
+
+    @endsection

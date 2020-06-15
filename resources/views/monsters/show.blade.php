@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <table class="table">
     <tr>
         <th>名前</th>
@@ -34,3 +38,5 @@
 </table>
 
 <a href="/monsters">ホームに戻る</a>
+
+@endsection

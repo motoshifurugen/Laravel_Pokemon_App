@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <h1>新しいポケモン</h1>
 
 <form method="POST" action="/monsters">
@@ -40,5 +44,5 @@
 
 <a href="/monsters">ホームに戻る</a>
 
-
+@endsection
 

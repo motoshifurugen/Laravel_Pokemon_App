@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <form method="POST" action="/monsters/{{ $monster->id }}">
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT">
@@ -43,3 +47,5 @@
   </form>
 
   <a href="/monsters">ホームに戻る</a>
+
+  @endsection

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da1776875a4d18ca592838d2bf1c5fca",
+    "content-hash": "bf7f1e5f60489902666706ba39a28cd6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1492,6 +1492,67 @@
                 "serialize"
             ],
             "time": "2020-06-07T11:41:29+00:00"
+        },
+        {
+            "name": "overtrue/laravel-favorite",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-favorite.git",
+                "reference": "e7689f8ad20fe3109e3c6739592c6ac6cc560563"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-favorite/zipball/e7689f8ad20fe3109e3c6739592c6ac6cc560563",
+                "reference": "e7689f8ad20fe3109e3c6739592c6ac6cc560563",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5||~6.0||~7.0"
+            },
+            "require-dev": {
+                "brainmaestro/composer-git-hooks": "^2.7",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "laravel/framework": "^5.7",
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^3.8",
+                "phpunit/phpunit": "~8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelFavorite\\FavoriteServiceProvider"
+                    ]
+                },
+                "hooks": {
+                    "pre-commit": [
+                        "composer test",
+                        "composer fix-style"
+                    ],
+                    "pre-push": [
+                        "composer test",
+                        "composer check-style"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelFavorite\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "User favorite features for Laravel Application.",
+            "time": "2020-06-12T12:00:08+00:00"
         },
         {
             "name": "phpoption/phpoption",
