@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Monster;
 use App\Attribute;
 use App\Region;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MonsterController extends Controller
@@ -16,10 +17,23 @@ class MonsterController extends Controller
      */
     public function index()
     {
-        $monsters = Monster::all();
+        $monsters = Monster::paginate(5);
 
         return view('monsters.index', compact('monsters'));
     }
+
+        // public function favorite(monster $monster)
+        // {
+        //     $user = Auth::user();
+
+        //     if ($user->hasFavorited($monster)) {
+        //         $user->unfavorite($monster);
+        //     } else {
+        //         $user->favorite($monster);
+        //     }
+
+        //     return redirect()->route('monsters.show', $monster);
+        // }
 
     /**
      * Show the form for creating a new resource.

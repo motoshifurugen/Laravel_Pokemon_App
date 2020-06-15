@@ -37,6 +37,23 @@
     </tr>
 </table>
 
+
+{{-- <div class="row">
+    <div class="col-5">
+        @if($monster->isFavoritedBy(Auth::user()))
+        <a href="/monsters/{{ $monster->id }}/favorite" class="btn pokemon-favorite-button text-favorite w-100">
+            <i class="fa fa-heart"></i>
+            お気に入り解除
+        </a>
+        @else
+        <a href="/monsters/{{ $monster->id }}/favorite" class="btn pokemon-favorite-button text-favorite w-100">
+            <i class="fa fa-heart"></i>
+            お気に入り
+        </a>
+        @endif
+    </div>
+</div> --}}
+
 <a href="/monsters">ホームに戻る</a>
 
 @endsection

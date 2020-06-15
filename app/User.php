@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\CustomVerifyEmail;
 use App\Notifications\CustomResetPassword;
+// use Overtrue\LaravelFavorite\Traits\Favoriter;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

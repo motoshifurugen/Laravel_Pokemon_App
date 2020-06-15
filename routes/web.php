@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('monsters/{monster}/favorite', 'monsterController@favorite')->name('monsters.favorite');
+
 Route::resource('monsters', 'MonsterController');
 
 Auth::routes(['verify' => true]);

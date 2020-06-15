@@ -52,6 +52,9 @@
 
     @endforeach
     </table>
+
+    {{ $monsters->links() }}
+
     <a href="/monsters/create">新しく追加する</a>
 
     @endsection
