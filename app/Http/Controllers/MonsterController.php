@@ -15,11 +15,43 @@ class MonsterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $monsters = Monster::paginate(5);
+        $sort_query = [];
+        $sorted = "";
 
-        return view('monsters.index', compact('monsters'));
+        if ($request->sort !== null) {
+            $slices = explode(' ', $request->sort);
+            $sort_query[$slices[0]] = $slices[1];
+            $sorted = $request->sort;
+        }
+
+        if ($request->attribute !== null ) {
+            $monsters = Monster::where('attribute_id', $request->attribute)->sortable($sort_query)->paginate(5);
+            $attribute = Attribute::find($request->attribute);
+        } else {
+            $monsters = Monster::sortable($sort_query)->paginate(5);
+            $attribute = null;
+        }
+
+        $sort = [
+            '並び替え' => ' ',
+            '高さの低い順' => 'size asc',
+            '高さの高い順' => 'size desc',
+            '重さの軽い順' => 'weight asc',
+            '重さの思い順' => 'weight desc'
+        ];
+        // if ($request->region !== null) {
+        //     $monsters = Monster::where('region_id', $request->region)->paginate(5);
+        //     $region = Region::find($request->region);
+        // } else {
+        //     $monsters = Monster::paginate(5);
+        //     $region = null;
+        // }
+        $attributes = Attribute::all();
+        // $regions = Region::all();
+
+        return view('monsters.index', compact('monsters', 'attribute', 'attributes', 'sort', 'sorted'));
     }
 
         // public function favorite(monster $monster)
